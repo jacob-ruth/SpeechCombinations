@@ -1,6 +1,8 @@
 *.class
 *.log
 
+ServiceAuth.scala
+
 # sbt specific
 .cache
 .history
@@ -11,6 +13,7 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
+recordings/
 
 # Scala-IDE specific
 .scala_dependencies

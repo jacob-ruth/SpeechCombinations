@@ -6,6 +6,7 @@ import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechResults
 import java.io.File
 import com.github.tototoshi.csv._
 import scala.collection.JavaConversions._
+import com.twitter.util.Future
 
 object TranscribeVideos {
 	var outputDirPath: String = ""
@@ -33,8 +34,12 @@ object TranscribeVideos {
 		val options = new RecognizeOptions.Builder().contentType("audio/wav").timestamps(true).wordAlternativesThreshold(0.01).continuous(false).build()
 		val a = System.currentTimeMillis;
 		for(file <- audioFiles){
-			val result : SpeechResults = service.recognize(file, options).execute();
-			val transcription = saveTranscription(file.getName, result);
+			val futureResult : Future[SpeechResults] = Future.value(service.recognize(file, options).execute());
+			
+			futureResult onSuccess{ result => 
+				saveTranscription(file.getName, result);
+			}
+
 		}
 
 		// if(audioFiles.length == 0){

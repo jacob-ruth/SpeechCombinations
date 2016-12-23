@@ -1,5 +1,7 @@
 *.class
 *.log
+*.mp4
+*.wav
 
 ServiceAuth.scala
 

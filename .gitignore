@@ -2,7 +2,7 @@
 *.log
 *.mp4
 *.wav
-
+*.flac
 ServiceAuth.scala
 
 # sbt specific
@@ -18,6 +18,7 @@ project/plugins/project/
 recordings/
 one/
 out/
+output/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet

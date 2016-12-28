@@ -13,3 +13,5 @@ libraryDependencies += "io.humble" % "humble-video-all" % "0.2.1"
 libraryDependencies += "com.ibm.watson.developer_cloud" % "speech-to-text" % "3.5.2"
 
 libraryDependencies += "com.github.tototoshi" %% "scala-csv" % "1.3.4"
+
+libraryDependencies += "net.bramp.ffmpeg" % "ffmpeg" % "0.6.1"

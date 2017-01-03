@@ -10,18 +10,9 @@ import com.twitter.util.Future
 import net.bramp.ffmpeg._
 import net.bramp.ffmpeg.builder._
 
-object TranscribeVideos {
-	var outputDirPath: String = ""
+class TranscribeVideos(inputDirPath: String, outputDirPath: String) {
 
-	def main(args: Array[String]) : Unit ={
-
-		if(args.length < 2){
-			println("TranscribeVideos vidDirInPath transcribeDirOutPath")
-			return;
-		}
-		val inputDirPath = args(0)
-		outputDirPath = args(1) + "/"
-
+	def run() : Unit ={
 		val inputDir = new File(inputDirPath)
 
 		val videoFiles = inputDir.listFiles.filter(_.getName.endsWith(".mp4"))
@@ -52,8 +43,8 @@ object TranscribeVideos {
 
 
 		def saveTranscription(vidName: String, result: SpeechResults): Unit = {
-			val name = vidName.replace('.', '_')
-			val outdir = new File(outputDirPath)
+			val name = vidName.substring(0, vidName.indexOf('.')) + ".csv"
+			val outdir = new File(outputDirPath + "/")
 			outdir.mkdir()
 			val file = new File(outdir, name)
 			val writer = CSVWriter.open(file)

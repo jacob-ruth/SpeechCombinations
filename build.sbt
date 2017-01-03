@@ -4,7 +4,7 @@ version := "1.0"
 
 scalaVersion := "2.11.0"
 
-mainClass in Compile := Some("transcribe.TranscribeVideos")
+mainClass in Compile := Some("Application")
 
 libraryDependencies += "com.twitter" % "finagle-http2_2.11" % "6.40.0"
 

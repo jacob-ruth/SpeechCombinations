@@ -67,5 +67,6 @@ class TranscribeVideos(inputDirPath: String, outputDirPath: String) {
 
 			}
 			writer.close();
+		
 		}
 }

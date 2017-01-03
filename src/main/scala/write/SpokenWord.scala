@@ -1,6 +1,6 @@
 package write
 
-class SpokenWord(word: String, confidence: Double, vidFile: String){
+class SpokenWord(word: String, startTime: String, endTime: String,  confidence: Double, vidFile: String){
 
 
 

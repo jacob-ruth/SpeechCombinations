@@ -1,4 +1,5 @@
-		
+
+import write._
 import transcribe._
 object Application{
 	val usageString = "speechcombinations [--transcribe inputVideoDirectory outputTranscriptionDirectory] [--write inputVideoDirectory  inputTranscriptionsDirectory inputTargetSpeech]"
@@ -36,7 +37,15 @@ object Application{
 			transcriber.run();
 		}
 
-		println(options)
+		if(options.contains('write)){
+			val writeArgs = options('write)
+			val combiner = new SpeechCombiner(writeArgs(0), writeArgs(1), writeArgs(2))
+			combiner.loadTranscriptions()
+			if(combiner.validTranscription()){
+				combiner.createVideo()
+			}
+		}
+
 	}
 }
 

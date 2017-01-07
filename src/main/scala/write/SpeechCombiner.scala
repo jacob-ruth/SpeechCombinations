@@ -35,6 +35,7 @@ class SpeechCombiner(inputVidPath: String, inputTransPath: String, inputTextFile
 			}
 
 		}
+		println(corpus.size)
 	}
 
 	def validTranscription() : Boolean = {

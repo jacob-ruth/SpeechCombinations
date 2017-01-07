@@ -3,6 +3,8 @@
 *.mp4
 *.wav
 *.flac
+*.csv
+*.avi
 ServiceAuth.scala
 
 # sbt specific
@@ -19,6 +21,8 @@ recordings/
 one/
 out/
 output/
+outputLarge/
+Collection/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet

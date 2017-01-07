@@ -20,6 +20,8 @@ object Application{
 				case Nil => map
 				case "--transcribe" :: value1 :: value2 :: tail if(!isArg(value1) && !isArg(value2)) => getOptions(map ++ Map('transcribe -> List(value1, value2)), tail)
 				case "--write" :: value1 :: value2 :: value3 :: tail if(!isArg(value1) && !isArg(value2) && !isArg(value3)) => getOptions(map ++ Map('write -> List(value1, value2, value3)), tail)
+				case "--a" :: tail => getOptions(map ++ Map('a -> List()), tail)
+				case "--s" :: tail => getOptions(map ++ Map('s -> List()), tail)
 				case whatever => println(usageString)
 								 map
 				}
@@ -34,7 +36,7 @@ object Application{
 		if(options.contains('transcribe)){
 			val transargs = options('transcribe)
 			val transcriber = new TranscribeVideos(transargs(0), transargs(1))
-			transcriber.run();
+			transcriber.run(options.contains('a), options.contains('s));
 		}
 
 		if(options.contains('write)){

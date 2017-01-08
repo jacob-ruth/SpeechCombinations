@@ -22,6 +22,7 @@ one/
 out/
 output/
 outputLarge/
+temp/
 Collection/
 # Scala-IDE specific
 .scala_dependencies
